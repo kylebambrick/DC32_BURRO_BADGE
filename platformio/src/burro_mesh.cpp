@@ -88,16 +88,19 @@ void printNodeList() {
   //Serial.println("Current Nodes in the Mesh Network:");
   for (auto const& node : nodeList) {
     //Serial.println(node);
+    return;
   }
 }
 
 void changedConnectionCallback() {
   //Serial.printf("Changed connections\n");
+  return;
   printNodeList();
 }
 
 void nodeTimeAdjustedCallback(int32_t offset) {
   //Serial.printf("Adjusted time %u. Offset = %d\n", mesh.getNodeTime(), offset);
+    return;
 }
 
 void initMesh() {

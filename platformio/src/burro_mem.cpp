@@ -24,16 +24,6 @@ void loadFlags() {
     flags.flagPass = EEPROM.read(8);
     flags.flagLogin = EEPROM.read(9);
     flags.flagUnlockIt = EEPROM.read(10);
-
-    /*
-    //Serial.print("colorID: "); //Serial.println(flags.colorID);
-    //Serial.print("flagSGS: "); //Serial.println(flags.flagSGS);
-    //Serial.print("flagKyle: "); //Serial.println(flags.flagKyle);
-    //Serial.print("flagUser: "); //Serial.println(flags.flagUser);
-    //Serial.print("flagPass: "); //Serial.println(flags.flagPass);
-    //Serial.print("flagLogin: "); //Serial.println(flags.flagLogin);
-    //Serial.print("flagUnlockIt: "); //Serial.println(flags.flagUnlockIt);
-    */
 }
 
 void setFlag(String flag) {
@@ -64,15 +54,13 @@ void saveColor(int id) {
     EEPROM.commit();
     int readId;
     EEPROM.get(1, readId);
-    //Serial.printf("Color set as %d\n", readId);
 }
 
 void resetEEPROM() {
     for (int i = 0; i < EEPROM_SIZE; i++) {
         EEPROM.write(i, 0);
     }
-    EEPROM.write(1, 1);  // Set colorID default to 1
+    EEPROM.write(1, 1);
     EEPROM.write(MAGIC_ADDR, MAGIC_VALUE);
     EEPROM.commit();
-    //Serial.println("EEPROM reset to default values.");
 }

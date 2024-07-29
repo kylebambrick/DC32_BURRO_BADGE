@@ -1,14 +1,13 @@
 #include "burro_leds.h"
 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, RGB_PIN, NEO_GRB + NEO_KHZ800);
-int brightness = 30; // Set brightness to 20% (20% of 255 is approximately 51)
+int brightness = 30;
 
-// Timing variables
 unsigned long previousMillis = 0;
 unsigned long patternChangeMillis = 0;
 unsigned long speed = 1;
-unsigned long interval = 100; // Adjust as needed for smooth patterns
-unsigned long patternInterval = 10000; // Time for each pattern to run (5 seconds)
+unsigned long interval = 100;
+unsigned long patternInterval = 10000;
 
 int counter = 0;
 bool onOff = true;
@@ -356,7 +355,7 @@ void randomLED() {
 
 void rainbowWheel() {
   okToChange = false;
-  uint16_t WheelPos = counter % 255;  // Counter is used here to cycle through color wheel
+  uint16_t WheelPos = counter % 255;
   uint32_t color;
 
   if(WheelPos < 85) {
